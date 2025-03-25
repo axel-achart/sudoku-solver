@@ -39,10 +39,9 @@ class Interface:
         self.button_backtracking_rect = pygame.Rect(150, 450, 400, 80)
 
     def display(self):
-        loop = True
         # Go next interface
         self.choice_interface = ChoiceInterface()
-        while loop:
+        while True:
             mouse_pos = pygame.mouse.get_pos()
             
             # Check if the mouse is hovering over a button
@@ -66,8 +65,9 @@ class Interface:
 
             # Handle events
             for event in pygame.event.get():
-                if event.type == QUIT:
-                    loop = False
+                if event.type == pygame.QUIT:
+                    pygame.quit()
+                    exit()
                 elif event.type == MOUSEBUTTONDOWN:
                     if is_hovered_brute:
                         print("BruteForce method selected!")
