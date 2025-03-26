@@ -35,7 +35,7 @@ class SolverInterface:
 
         # Center grid
         grid_x = (WINDOW_WIDTH - max_grid_size) // 2
-        grid_y = 120
+        grid_y = 85
 
         # Lines
         for i in range(10):
@@ -65,7 +65,7 @@ class SolverInterface:
         self.root.blit(self.title_text, self.title_pos)
         self.draw_grid()
         pygame.display.update()
-        pygame.time.delay(50) 
+        pygame.time.delay(50)
 
     def display(self, previous_interface):
         self.inter = previous_interface

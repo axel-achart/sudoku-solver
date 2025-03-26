@@ -8,8 +8,11 @@ from views.choice_cage_interface import ChoiceInterface
 def main():
     pygame.init()
     
+    # Launch Interface Home
     inter = Interface()
     inter.display()
+
+    # Launch Interface to choose a cage
     choice_interface = ChoiceInterface()
     file_path = choice_interface.get_selected_file() 
     
@@ -17,9 +20,11 @@ def main():
         print("Any files selected")
         return
 
+    # Launch Grid for Sudoku
     sudoku = SudokuGrid(file_path)
     sudoku.display_grid()
 
+    # Launch Interface of the solver
     interface = SolverInterface(sudoku.grid)
     solver = Backtracking(sudoku.grid, interface)
     
@@ -30,6 +35,7 @@ def main():
         print("No solution found.")
     
     pygame.quit()
+
 
 if __name__ == '__main__':
     main()

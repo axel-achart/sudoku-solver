@@ -5,8 +5,6 @@
 # d. A file that retrieves a Sudoku example, calls one
 # of the solving methods, and displays the solution in the terminal as well as in a Pygame window.
 
-import pygame
-
 class SudokuGrid:
     """Class to manage the Sudoku grid and solving process."""
     def __init__(self, file_path):
