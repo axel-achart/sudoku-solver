@@ -1,16 +1,6 @@
 # solver backtracking method
 
-grids = [
-    [0,7,2,9,0,0,0,3,0],
-    [0,0,1,0,0,6,0,8,0],
-    [0,0,0,0,4,0,0,6,0],
-    [9,6,0,0,0,4,1,0,8],
-    [0,4,8,7,0,5,0,9,6],
-    [0,0,5,6,0,8,0,0,3],
-    [0,0,0,4,0,2,0,1,0],
-    [8,5,0,0,6,0,3,2,7],
-    [1,0,0,8,5,0,0,0,0]
-]
+
 
 ### True if we didn't find the value
 ### False if i find value
@@ -19,6 +9,25 @@ class Backtracking():
     def __init__(self, grid):
         self.grid = grid
 
+
+    def read_grid_from_file(file_path):
+        """Lire la grille depuis un fichier texte."""
+        try:
+            with open(file_path, "r") as f:
+                grid = []
+                for line_num, line in enumerate(f, start=1):
+                    line = line.strip()
+                    if len(line) != 9 or not line.isdigit():
+                        raise ValueError(f"line {line_num} : must contain 9 numbers.")
+                    grid.append([int(ch) for ch in line])
+                if len(grid) != 9:
+                    raise ValueError("the txt file must contains 9 line.")
+            return grid
+        except FileNotFoundError as e:
+            raise FileNotFoundError(f"file not found : {file_path}") from e
+        except ValueError as e:
+            raise ValueError(f"error in file {file_path}: {e}") from e
+
     def display_grid(self):
         for i in range(9):
             if i % 3 == 0 and i != 0:
@@ -26,7 +35,7 @@ class Backtracking():
             for j in range(9):
                 if j % 3 == 0 and j != 0:
                     print("|", end=" ")
-                print(self.grid[i][j] if self.grid[i][j] != 0 else ".", end=" ")
+                print(self.grid[i][j] if self.grid[i][j] != 0 else "0", end=" ")
             print()
         print("\n")
    
@@ -77,14 +86,10 @@ class Backtracking():
 
         return False
             
-
-
+file_path = r"cages\fourth.txt"
+grids = Backtracking.read_grid_from_file(file_path)
 grid = Backtracking(grids)
 
-tab1 = grid.line_value(1, 0)
-tab2 = grid.column_value(1, 0)
-tab3 = grid.box_grid_value(1,2,3)
-grid.display_grid()
 if grid.verification_grid(0):
     print('the sudoku is solved')
     grid.display_grid()
