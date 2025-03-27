@@ -12,12 +12,11 @@ class ChoiceInterface:
         self.font = pygame.font.Font(None, 36)
         self.selected_file = None
 
-        self.files = ["cages/first.txt", "cages/second.txt", "cages/third.txt", "cages/fourth.txt", "cages/fifth.txt"]
-        self.buttons = []
-
-        for i, file in enumerate(self.files):
-            rect = pygame.Rect(150, 150 + i * 100, 400, 60)
-            self.buttons.append((file, rect))
+        self.files = [
+            "cages/first.txt", "cages/second.txt", "cages/third.txt",
+            "cages/fourth.txt", "cages/fifth.txt"
+        ]
+        self.buttons = [(file, pygame.Rect(150, 150 + i * 100, 400, 60)) for i, file in enumerate(self.files)]
 
     def display(self):
         while True:

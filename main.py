@@ -13,7 +13,7 @@ def main():
     
     # Launch Interface Home
     inter = Interface()
-    inter.display()
+    method = inter.display()
 
     # Launch Interface to choose a cage
     choice_interface = ChoiceInterface()
@@ -29,8 +29,11 @@ def main():
 
     # Launch Interface of the solver
     interface = SolverInterface(sudoku.grid)
-    solver = Sudoku(sudoku.grid, interface)
-    solver = Backtracking(sudoku.grid, interface)
+
+    if method == "bruteforce":
+        solver = Sudoku(sudoku.grid, interface)     # BruteForce
+    else:
+        solver = Backtracking(sudoku.grid, interface)       # BackTracking
     
     if solver.solve():
         print("Sudoku solved!")

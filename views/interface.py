@@ -59,12 +59,12 @@ class Interface:
                         selected_file = self.choice_interface.get_selected_file()
                         if selected_file:
                             print(f"Selected : {selected_file}")
-                            return selected_file 
+                            return "bruteforce"
                     
                     elif is_hovered_backtracking:
                         selected_file = self.choice_interface.get_selected_file()
                         if selected_file:
                             print(f"Selected : {selected_file}")
-                            return selected_file 
+                            return "backtracking"
 
             pygame.display.flip()
