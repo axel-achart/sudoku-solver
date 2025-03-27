@@ -1,12 +1,16 @@
 # solver backtracking method
 
+import time
+
 class Backtracking:
     """Backtracking algorithm to solve the Sudoku grid."""
     def __init__(self, grid, interface=None):
         self.grid = grid
         self.interface = interface
+        self.start_time = None
 
     def solve(self, position=0):
+        self.start_time = time.time()
         """Recursive method to solve the Sudoku using backtracking."""
         if position == 81:
             return True
