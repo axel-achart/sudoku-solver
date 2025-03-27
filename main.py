@@ -2,8 +2,11 @@ import pygame
 from views.interface import Interface
 from script.script import SudokuGrid
 from algo.backtracking import Backtracking
+from algo.bruteforce import Sudoku
 from views.solver_interface import SolverInterface
 from views.choice_cage_interface import ChoiceInterface
+
+from algo.bruteforce import Sudoku
 
 def main():
     pygame.init()
@@ -26,6 +29,7 @@ def main():
 
     # Launch Interface of the solver
     interface = SolverInterface(sudoku.grid)
+    solver = Sudoku(sudoku.grid, interface)
     solver = Backtracking(sudoku.grid, interface)
     
     if solver.solve():

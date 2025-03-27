@@ -55,12 +55,16 @@ class Interface:
                     pygame.quit()
                     exit()
                 elif event.type == MOUSEBUTTONDOWN:
-                    if is_hovered_backtracking:
+                    if is_hovered_brute:
                         selected_file = self.choice_interface.get_selected_file()
                         if selected_file:
-                            print(f"File selected : {selected_file}")
+                            print(f"Selected : {selected_file}")
                             return selected_file 
-                    elif is_hovered_brute:
-                        pass
+                    
+                    elif is_hovered_backtracking:
+                        selected_file = self.choice_interface.get_selected_file()
+                        if selected_file:
+                            print(f"Selected : {selected_file}")
+                            return selected_file 
 
             pygame.display.flip()
