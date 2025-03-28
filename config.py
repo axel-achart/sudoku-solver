@@ -1,9 +1,6 @@
-# Configuration general for sizes, colors...
-
 WINDOW_WIDTH = 700
 WINDOW_HEIGHT = 700
 
-# Colors
 COLORS_ZERO = 'red'
 COLORS_NUMBERS = 'blue'
 COLORS_NEUTRAL = 'black'

@@ -1,4 +1,4 @@
-# Home interface for Sudoku Solver
+
 from config import *
 import pygame
 from pygame.locals import *
@@ -7,7 +7,7 @@ from views.choice_cage_interface import ChoiceInterface
 pygame.init()
 
 class Interface:
-    # Interface for the home screen of the Sudoku solver
+
     def __init__(self):
         self.root = pygame.display.set_mode((WINDOW_WIDTH, WINDOW_HEIGHT))
         pygame.display.set_caption("Sudoku Solver - Developed by Perla, Alexandre, Axel")
@@ -33,7 +33,6 @@ class Interface:
 
         self.choice_interface = ChoiceInterface()
 
-    # Display the interface and handle events
     def display(self):
         while True:
             self.root.fill(COLORS_BACKGROUND) 

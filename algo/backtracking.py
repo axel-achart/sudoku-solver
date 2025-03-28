@@ -1,18 +1,16 @@
-# Backtracking method to solve Sudoku
 
 import time
 
 class Backtracking:
-    """Backtracking algorithm to solve the Sudoku grid."""
+
     def __init__(self, grid, interface=None):
         self.grid = grid
         self.interface = interface
         self.start_time = None
 
-    # Check if a number can be placed in a cell
     def solve(self, position=0):
         self.start_time = time.time()
-        """Recursive method to solve the Sudoku using backtracking."""
+
         if position == 81:
             return True
         row, col = divmod(position, 9)
@@ -30,9 +28,8 @@ class Backtracking:
                     self.interface.update_grid()
         return False
 
-    # Check if the Sudoku is solved
     def is_valid(self, value, row, col):
-        """Check if a value is valid in a given position."""
+
         return (self.is_valid_in_row(value, row) and
                 self.is_valid_in_column(value, col) and
                 self.is_valid_in_box(value, row, col))

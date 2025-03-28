@@ -1,4 +1,3 @@
-# Raw solver methods for Sudoku using brute-force algorithm
 
 import time
 import itertools
@@ -9,9 +8,8 @@ class Sudoku:
         self.interface = interface
         self.start_time = None
 
-    # Check if a number can be placed in a cell
     def solve(self):
-        """Brute-force Sudoku solver that tries all possible values."""
+
         self.start_time = time.time()
         empty_cells = sorted([(r, c) for r in range(9) for c in range(9) if self.grid[r][c] == 0], key=lambda x: (x[0], x[1]))
 
@@ -24,16 +22,14 @@ class Sudoku:
             if self.is_solved():
                 return True
 
-            # After 10 sec, too long
             if time.time() - self.start_time > 10:
                 print("More than 10 secondes...Brute force in progress... Come back in a few years. 😂")
                 return False
 
         return False
 
-    # Check if the Sudoku is solved
     def is_solved(self):
-        """Check if the Sudoku is completely filled and valid."""
+
         for row in self.grid:
             if len(set(row)) != 9:
                 return False
