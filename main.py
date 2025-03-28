@@ -5,6 +5,7 @@ from algo.backtracking import Backtracking
 from algo.bruteforce import Sudoku
 from views.solver_interface import SolverInterface
 from views.choice_cage_interface import ChoiceInterface
+import time
 
 from algo.bruteforce import Sudoku
 
@@ -27,15 +28,19 @@ def main():
     interface = SolverInterface(sudoku.grid)
 
     if method == "bruteforce":
+        start_time = time.time()
         solver = Sudoku(sudoku.grid, interface)
     else:
+        start_time = time.time()
         solver = Backtracking(sudoku.grid, interface) 
     
     if solver.solve():
         print("Sudoku solved!")
         sudoku.display_grid()
+        print("Time to be solved: ", time.time() - start_time, "seconds")
     else:
         print("No solution found.")
+        print("Time to process: ", time.time() - start_time, "seconds")
     
     pygame.quit()
 

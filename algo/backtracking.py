@@ -1,15 +1,10 @@
-
-import time
-
 class Backtracking:
 
     def __init__(self, grid, interface=None):
         self.grid = grid
         self.interface = interface
-        self.start_time = None
 
     def solve(self, position=0):
-        self.start_time = time.time()
 
         if position == 81:
             return True
