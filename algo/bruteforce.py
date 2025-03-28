@@ -23,7 +23,7 @@ class Sudoku:
                 return True
 
             if time.time() - self.start_time > 10:
-                print("More than 10 secondes...Brute force in progress... Come back in a few years. 😂")
+                print("Brute force in progress... Come back in a few years. 😂")
                 return False
 
         return False
