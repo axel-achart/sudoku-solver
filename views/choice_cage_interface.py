@@ -1,3 +1,4 @@
+# Interface to choose a cage to solve
 import pygame
 from pygame.locals import *
 from config import *

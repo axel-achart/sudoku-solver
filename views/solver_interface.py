@@ -1,3 +1,4 @@
+# Interface of the solving process
 from config import *
 import pygame
 from algo.backtracking import Backtracking
@@ -59,7 +60,7 @@ class SolverInterface:
                     text_rect = text_surface.get_rect(center=(grid_x + col * cell_size + cell_size // 2, grid_y + row * cell_size + cell_size // 2))
                     self.root.blit(text_surface, text_rect)
 
-
+    # Update each steps of the algorithm
     def update_grid(self):
         self.root.fill(COLORS_BACKGROUND)
         self.root.blit(self.title_text, self.title_pos)
@@ -67,6 +68,7 @@ class SolverInterface:
         pygame.display.update()
         """pygame.time.delay(50)"""
 
+    # Display the interface
     def display(self, previous_interface):
         self.inter = previous_interface
         while True:

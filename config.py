@@ -1,7 +1,5 @@
 # Configuration general for sizes, colors...
 
-import pygame
-
 WINDOW_WIDTH = 700
 WINDOW_HEIGHT = 700
 

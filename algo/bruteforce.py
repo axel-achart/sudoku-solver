@@ -1,4 +1,4 @@
-# raw solver method
+# Raw solver methods for Sudoku using brute-force algorithm
 
 import time
 import itertools
@@ -9,6 +9,7 @@ class Sudoku:
         self.interface = interface
         self.start_time = None
 
+    # Check if a number can be placed in a cell
     def solve(self):
         """Brute-force Sudoku solver that tries all possible values."""
         self.start_time = time.time()
@@ -30,7 +31,7 @@ class Sudoku:
 
         return False
 
-
+    # Check if the Sudoku is solved
     def is_solved(self):
         """Check if the Sudoku is completely filled and valid."""
         for row in self.grid:

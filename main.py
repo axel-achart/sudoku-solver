@@ -1,3 +1,4 @@
+# Main File to launch program
 import pygame
 from views.interface import Interface
 from script.script import SudokuGrid
@@ -35,6 +36,7 @@ def main():
     else:
         solver = Backtracking(sudoku.grid, interface)       # BackTracking
     
+    # Results
     if solver.solve():
         print("Sudoku solved!")
         sudoku.display_grid()
@@ -44,5 +46,6 @@ def main():
     pygame.quit()
 
 
+# Launch by myself only
 if __name__ == '__main__':
     main()
